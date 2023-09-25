@@ -1,2 +1,2 @@
-import { IMarket } from "./interfaces"
-export const marketDataBase: IMarket[] = []
+import { Products } from "./interfaces"
+export const marketDataBase: Products[] = []

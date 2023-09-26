@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 import { marketDataBase } from "./database";
 let lastId = 1;
+import { Products } from "./interfaces";
 export const createProduct = (req: Request, res: Response) => {
   const dataAtual = new Date();
   dataAtual.setDate(dataAtual.getDate() + 365);
-  const newProduct = {
+  const newProduct : Products = {
     id: lastId++,
     name: req.body.name,
     price: req.body.price,
@@ -46,7 +47,7 @@ export const updateProductById = (req: Request, res: Response) => {
   const product = marketDataBase.find(
     (product) => product.id === +req.params.id
   );
-  const newProduct = { ...product, ...req.body };
+  const newProduct : Products = { ...product, ...req.body };
   const index = marketDataBase.findIndex(
     (product) => product.id === +req.params.id
   );
